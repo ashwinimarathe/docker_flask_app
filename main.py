@@ -13,8 +13,8 @@ import matplotlib
 import base64
 
 
-RAPIDAPI_KEY  = "bc8338e894mshfb43cf784f40320p14f907jsn4aa116b1480c" 
-RAPIDAPI_HOST = "apidojo-yahoo-finance-v1.p.rapidapi.com"
+RAPIDAPI_KEY  = "******" 
+RAPIDAPI_HOST = "******"
 inputdata = {}
 
 def fetchStockData(symbol):

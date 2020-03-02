@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Please enter Stock Name{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <article class="post">
+        <header>
+        <div>
+            <h1>{{ answer['symbol'] }}</h1>
+            <div class="about">Sector: {{ answer['sector'] }}</div>
+            <div class="about">Full Time Employees: {{ answer['fte'] }}</div>
+            <div class="about">Business Summary: </div>
+            <div class="about">{{ answer['longBusinessSummary'] }}</div>
+        </div>       
+        </header>
+    </article>
+{% endblock %}
+
+{% block header1 %}
+  <h1>{% block title1 %} Revenue and Earnings{% endblock %}</h1>
+{% endblock %}
+
+{% block content1 %}
+
+<h1>{% block head %}Yearly{% endblock %}</h1>
+<table align="center" class="thick-border">
+    <tr>
+        <th>Year</th>
+        <th>Revenue</th>
+        <th>Earnings</th>
+    </tr>
+        {% for row_index in (answer['yearly']) %}
+            <tr>
+            <td>{{ row_index['date'] }}</td>
+            <td>{{ row_index['revenue']['fmt'] }}</td>
+            <td>{{ row_index['earnings']['fmt'] }}</td>
+            </tr>
+    {% endfor %}
+</table>
+
+<h1>{% block head1 %}Quarterly{% endblock %}</h1>
+<table align="center" class="thick-border">
+    <tr>
+        <th>Quarter</th>
+        <th>Revenue</th>
+        <th>Earnings</th>
+    </tr>
+        {% for row_index in (answer['quarterly']) %}
+            <tr>
+            <td>{{ row_index['date'] }}</td>
+            <td>{{ row_index['revenue']['fmt'] }}</td>
+            <td>{{ row_index['earnings']['fmt'] }}</td>
+            </tr>
+    {% endfor %}
+</table>
+{% endblock %}}
+
+
+

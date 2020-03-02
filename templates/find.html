@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Stock Trends{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <img src="data:image/png;base64, {{ plot_url }}" alt="my plot">
+{% endblock %}
+

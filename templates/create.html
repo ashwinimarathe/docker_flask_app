@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Please enter Stock Name{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+  <form method="post">
+    <label for="title">Title</label>
+    <input name="title" id="title" value="{{ request.form['title'] }}" required>
+    <input type="submit" name="button" value="Plot Trend">
+    <input type="submit" name="button" value="Details">
+  </form>
+  <div>
+      <img src="data:image/png;base64,{{ results }}" width="500">
+  </div>
+{% endblock %}
+

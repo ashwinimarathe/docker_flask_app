@@ -1,0 +1,20 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} Stock Price Plotting</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<nav>
+  <h1>Stock Trends</h1>
+</nav>
+<section class="content">
+  <title>{% block title1 %}{% endblock %}</title>
+  <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+  <header>
+    {% block header1 %}{% endblock %}
+  </header>
+  {% block content1 %}{% endblock %}
+</section>

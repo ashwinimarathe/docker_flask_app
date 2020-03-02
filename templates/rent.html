@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Books{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('dashboard.index') }}">Home</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% for book in books %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>{{ book['name'] }}</h1>
+          <div class="about">by {{ book['author'] }} published in {{ book['yera_of_publication']}}</div>
+        </div>        
+      </header>
+      <!-- <p class="body">{{ book['body'] }}</p> -->
+    </article>
+    <form method="post">
+      <button type="submit" name="submit_button" value="{{book.id}}">Rent</button>
+      <!-- <input type="submit" name="submit_button" value={{book.id}}> -->
+    </form>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}
